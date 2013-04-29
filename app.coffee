@@ -1,13 +1,19 @@
-express = require('express')
-routes = require('./routes')
-user = require('./routes/user')
-http = require('http')
-path = require('path')
-stylus = require('stylus')
-fs = require('fs')
-coffee = require('coffee-script')
+express = require 'express'
+routes = require './routes'
+user = require './routes/user'
+http = require 'http'
+path = require 'path'
+stylus = require 'stylus'
+bootstrap = require 'bootstrap-stylus'
+fs = require 'fs'
+coffee = require 'coffee-script'
 
 app = express()
+
+compile = (str, path) ->
+  return stylus(str)
+    .set('filename', path)
+    .use(bootstrap())
 
 app.set('port', process.env.PORT || 3000)
 app.set('views', __dirname + '/views')
@@ -17,11 +23,11 @@ app.use(express.logger('dev'))
 app.use(express.bodyParser())
 app.use(express.methodOverride())
 app.use(app.router)
-#app.use(require('stylus').middleware(__dirname + '/public'))
 app.use stylus.middleware
   src: "#{__dirname}/app/assets"
   dest: __dirname + '/public'
   compress: true
+  compile: compile
 app.use(express.static(path.join(__dirname, 'public')))
 
 

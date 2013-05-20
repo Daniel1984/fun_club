@@ -1,6 +1,9 @@
 define [
   'jquery'
   'backbone'
-], ($, Backbone) ->
+  'views/page/index_view'
+  'backstretch'
+], ($, Backbone, PageIndexView) ->
   init: ->
-    console.log 'initializing app'
+    $('body').backstretch('http://www.photosof.org/walls/grass_against_blurry_landscape-wide.jpg')
+    $('body').append(new PageIndexView().render().el)

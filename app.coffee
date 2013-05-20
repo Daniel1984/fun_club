@@ -2,16 +2,11 @@ express = require 'express'
 http = require 'http'
 path = require 'path'
 stylus = require 'stylus'
-bootstrap = require 'bootstrap-stylus'
 fs = require 'fs'
 coffee = require 'coffee-script'
 
 app = express()
 
-compile = (str, path) ->
-  return stylus(str)
-    .set('filename', path)
-    .use(bootstrap())
 app.configure ->
   app.set('port', process.env.PORT || 3000)
   app.set('views', "#{__dirname}/app/views")
@@ -24,7 +19,6 @@ app.configure ->
     src: "#{__dirname}/app/assets"
     dest: __dirname + '/public'
     compress: true
-    compile: compile
   app.use(express.static("#{__dirname}/public"))
   app.use(express.static("#{__dirname}/app/assets/javascripts"))
   app.use(app.router)

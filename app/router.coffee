@@ -6,4 +6,5 @@ module.exports = (app) ->
   app.get '/', homeController.index
   
   postController = require("#{appPath}/controllers/posts")
+  app.get '/posts', postController.index
   app.post '/posts', postController.create

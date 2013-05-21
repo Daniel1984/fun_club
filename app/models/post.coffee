@@ -28,5 +28,10 @@ module.exports.create = (post, cb) ->
   Post(post).save (err, post) ->
     return cb(null, err) if err
     cb(post, null)
-    db.disconnect()
+    #  db.disconnect()
 
+module.exports.index = (search, cb) ->
+  Post.find {}, (err, posts) ->
+    return cb(null, err) if err
+    cb(posts, null)
+    #    db.disconnect()

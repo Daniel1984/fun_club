@@ -3,19 +3,17 @@ define [
   'views/posts/search_post_manager'
   'views/posts/create_post_manager'
   'views/posts/list_view'
-  'collections/posts'
-], (Backbone, SearchPostManager, CreatePostManager, ListView, Posts) ->
+], (Backbone, SearchPostManager, CreatePostManager, ListView) ->
   class PostsIndexView extends Backbone.View
     className: 'posts-conainer'
 
     initialize: (options) ->
-      @posts = new Posts()
-      @posts.on('reset', @renderList)
 
     render: =>
       @$el.html()
       @enableSearch()
       @enableCreate()
+      @renderList()
       @
 
     enableSearch: =>
@@ -27,4 +25,5 @@ define [
       @$el.append(@createInput.render().el)
 
     renderList: =>
-      console.log 'got here'
+      @listView = new ListView()
+      @$el.append(@listView.render().el)

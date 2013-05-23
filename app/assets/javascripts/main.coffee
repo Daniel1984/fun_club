@@ -9,6 +9,7 @@ require.config
     bootstrap: 'lib/bootstrap'
     select2: 'lib/select2'
     backstretch: 'lib/backstretch'
+    blocksit: 'lib/blocksit'
   shim:
     underscore:
       exports: '_'
@@ -21,7 +22,9 @@ require.config
     backstretch:
       deps: ['jquery']
       exports: 'jQuery.fn.backstretch'
-
+    blocksit:
+      deps: ['jquery']
+      exports: 'jQuery.fn.blocksit'
 
 require ['domready', 'app'], (domReady, app) ->
   domReady ->

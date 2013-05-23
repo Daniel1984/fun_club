@@ -4,8 +4,7 @@ define [
 ], (Backbone, template) ->
 
   class ItemView extends Backbone.View
-    tagName: 'li'
-    className: 'span3 well'
+    className: 'well grid post-item'
 
     initialize: (options) ->
       @template = _.template(template)

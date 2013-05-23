@@ -4,7 +4,7 @@ define [
   'text!templates/page/index.html'
 ], (Backbone, PostsView, template) ->
   class PageIndexView extends Backbone.View
-    className: 'row-fluid'
+    className: 'container-fluid'
     
     initialize: (options) ->
       @template = _.template(template)

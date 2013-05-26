@@ -5,5 +5,5 @@ define [
   'backstretch'
 ], ($, Backbone, PageIndexView) ->
   init: ->
-    $('body').backstretch('http://www.photosof.org/walls/grass_against_blurry_landscape-wide.jpg')
+    $('body').backstretch('http://turnlol.com/images/2012/10/light-bokeh-macro-depth-of-field-blurred-1920x1080-hd-wallpaper.jpg')
     $('body').append(new PageIndexView().render().el)

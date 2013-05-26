@@ -5,15 +5,11 @@
       <input class='span3' type='text' name='title' maxlength='100' placeholder='daugiausiai 100 ženklų'/ >
     </div>
   </div>
-
   <div class='control-group'>
     <label class='control-label'>Telefonas:</label>
     <div class='controls'>
-      <div class="input-prepend">
-        <span class="add-on">+370</span>
-        <input class="span2" id="prependedInput" type="text" name='mobile' maxlength='8' placeholder="pvz.:67522947">
-      </div>
-      <span class="help-block"><small>Užpildykite tam, kad gautumėte pranešimus apie jūsų skelbime įvykusius pokyčius</small></span>
+      <input class="span3" type="text" name='mobile' maxlength='12' placeholder="pvz.: +3706777777">
+      <i class="icon-info-sign" data-toggle='tooltip' title='Užpildę šį langelį, nurodytu numeriu, gausite sms žinutę kas kartą kai kažkas pakomentuos jūsų skelbimą. Tai padės jums greičiau rasti tai ko ieškote.'></i> 
     </div>
   </div>
 
@@ -21,6 +17,14 @@
     <label class='control-label'>El paštas:</label>
     <div class='controls'>
       <input class='span3' type='text' name='email' maxlength='50'/>
+      <i class="icon-info-sign" data-toggle='tooltip' title='Užpildę šį langelį, nurodytu adresu, gausite laišką kas kartą kai kažkas pakomentuos jūsų skelbimą. Tai padės jums greičiau rasti tai ko ieškote.'></i> 
+    </div>
+  </div>
+
+  <div class='control-group'>
+    <label class='control-label'>Miestas:</label>
+    <div class='controls city-select-container'>
+      
     </div>
   </div>
 
@@ -30,4 +34,13 @@
       <textarea class='span3' rows='4' name='body' maxlength='300' placeholder='daugiausiai 300 ženklų'/>
     </div>
   </div>
+
+  <div class='control-group'>
+    <label class='control-label'>Pasirinkite nuotraką</label>
+    <div class='controls'>
+      <input class='file-upload' title='Prisekite nuotrauką' type='file' name='post_img_clear'>
+    </div>
+  </div>
 </fieldset>
+<img class='img-holder' id='uploadPreview' style='width: 100%;'/>
+<canvas class='img-canvas' width='220px' height='140px' style='display: block;'></canvas>

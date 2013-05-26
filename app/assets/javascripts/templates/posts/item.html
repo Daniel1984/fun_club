@@ -1,9 +1,22 @@
 <div class="modal-header">
-  <h5><%= title %></h5>
+  <h4 class='title'><%= title %></h4>
 </div>
 
 <div class="modal-body">
-
+  <div class='row-fluid'>
+    <div class='span6'>
+      <% if (post_image) { %>
+        <img width='100%' src='<%= post_image %>' />
+      <% } else { %>
+        <img width='100%' src='images/anonym.jpg' />
+      <% } %>
+    </div>
+    <div class='span6'>
+      <% if (body) { %>
+        <span class="body"><%= body %></span>
+      <% } %>
+    </div>
+  </div>
 </div>
 
 <div class="modal-footer">

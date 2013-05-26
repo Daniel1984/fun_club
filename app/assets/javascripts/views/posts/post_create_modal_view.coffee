@@ -22,4 +22,5 @@ define [
 
     savePost: (e) =>
       e.preventDefault()
+      @model.unset('post_img_clear')
       @model.save()

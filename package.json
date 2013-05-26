@@ -11,6 +11,9 @@
     "stylus": "*",
     "coffee-script": "~1.6.2",
     "mongoose": "~3.6.9",
-    "config": "~0.4.24"
+    "config": "~0.4.24",
+    "nodemailer": "~0.4.4",
+    "underscore": "~1.4.4",
+    "twilio": "~1.1.1"
   }
 }

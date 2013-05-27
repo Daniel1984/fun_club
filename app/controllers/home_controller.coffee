@@ -1,3 +1,3 @@
 module.exports.index = (req, res) ->
   res.render 'index',
-    title: 'Linksmi Vakarai'
+    title: 'Fun Club'

@@ -4,16 +4,16 @@
 
 <div class="modal-body">
   <div class='row-fluid'>
-    <div class='span6'>
+    <div class='span6 img-container'>
       <% if (post_image) { %>
-        <img width='100%' src='<%= post_image %>' />
+        <img src='<%= post_image %>' />
       <% } else { %>
-        <img width='100%' src='images/anonym.jpg' />
+        <img src='images/anonym.jpg' />
       <% } %>
     </div>
-    <div class='span6'>
+    <div class='span6 body'>
       <% if (body) { %>
-        <span class="body"><%= body %></span>
+        <span><%= body %></span>
       <% } %>
     </div>
   </div>

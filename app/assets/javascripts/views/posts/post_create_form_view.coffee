@@ -12,7 +12,7 @@ define [
       'change .file-upload': 'handleFileUpload'
 
     initialize: (options) ->
-      @maxImageDimention = 200
+      @maxImageDimention = 400
       @template = _.template(template)
       if window.FileReader
         @fileReader = new FileReader()
@@ -56,12 +56,12 @@ define [
     setupPortraitCanvas: =>
       delta = 100 - (-(@maxImageDimention - @imgData.height)*100/@imgData.height)
       width = (@imgData.width * delta)/100
-      @setupCanvasSize(width, 200)
+      @setupCanvasSize(width, @maxImageDimention)
 
     setupLanscapeCanvas: =>
       delta = 100 - (-(@maxImageDimention - @imgData.width)*100/@imgData.width)
       height = (@imgData.height * delta)/100
-      @setupCanvasSize(200, height)
+      @setupCanvasSize(@maxImageDimention, height)
 
     setupCanvasSize: (width, height) =>
       @canvas.width = width

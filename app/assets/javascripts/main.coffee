@@ -7,12 +7,12 @@ require.config
     text: 'lib/requirejs/text'
     domready: 'lib/requirejs/domready'
     bootstrap: 'lib/bootstrap'
+    modalmanager: 'lib/modalmanager'
     select2: 'lib/select2'
     backstretch: 'lib/backstretch'
     blocksit: 'lib/blocksit'
     shorten: 'lib/jquery_shorten'
     spin: 'lib/spin'
-    dropzone: 'lib/dropzone'
   shim:
     underscore:
       exports: '_'
@@ -34,6 +34,9 @@ require.config
     shorten:
       deps: ['jquery']
       exports: 'jQuery.fn.shorten'
+    modalmanager:
+      deps: ['jquery']
+      exports: 'jQuery.fn.modal'
 
 require ['domready', 'app'], (domReady, app) ->
   domReady =>

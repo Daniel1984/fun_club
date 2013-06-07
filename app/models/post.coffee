@@ -22,6 +22,7 @@ PostSchema = new db.Schema
   city: type: String, required: true
   body: type: String, required: false, validate: [bodyLengthValidator, 'per ilgas pranešimas']
   post_image: String
+  comments: [type: db.Schema.Types.ObjectId, ref: 'CommentSchema']
   created_at: type: Date
   updated_at: type: Date, default: Date.now
 
@@ -38,9 +39,15 @@ module.exports.create = (post, cb) ->
         subject: 'Laikas linksmybėms!'
         html: ejs.render(postSuccessHtmlEmail, {post: post})
     if post.mobile
-      sms.sendSms(post.mobile, 'LINKSMI VAKARAI DEKOJA UZ SKELBIMA. TIKIMES JOG RASITE TAI KO IESKOJOTE.')
+      sms.sendSms(post.mobile, 'FUN CLUB DEKOJA UZ SKELBIMA. TIKIMES JOG RASITE TAI KO IESKOJOTE.')
 
 module.exports.index = (search, cb) ->
-  Post.find {}, (err, posts) ->
+  Post
+    .where('city').in(if search.city then [search.city] else [1..64])
+    .exec (err, posts) ->
+      cb(posts, null)
+
+module.exports.show = (id, cb) ->
+  Post.findById id, (err, post) ->
     return cb(null, err) if err
-    cb(posts, null)
+    cb(post, null)

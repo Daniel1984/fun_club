@@ -1,6 +1,7 @@
 define [], () ->
 
   recalibrate: (el) =>
+    console.log 'recalibrating'
     winWidth = $(window).width()
     conWidth = undefined
     if winWidth < 750

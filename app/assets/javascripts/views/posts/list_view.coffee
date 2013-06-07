@@ -1,32 +1,24 @@
 define [
   'backbone'
-  'views/posts/item_view'
-  'collections/posts'
+  'views/posts/item_view' 
   'modules/tile_manager'
-  'spin'
   'blocksit'
-], (Backbone, PostItemView, Posts, TileManager, Spin) ->
+], (Backbone, PostItemView, TileManager) ->
   class ListView extends Backbone.View
     id: 'container'
 
-    initialize: (options) ->
-      @spin = new Spin(color: '#FFF')
-      @posts = new Posts()
-      @posts.on('reset', @renderPosts)
-      @posts.fetch(data: {}, reset: true)
-  
     render: =>
       @$el.html()
-      @$el.append(@spin.spin().el)
+      @renderPosts()
       $(window).resize () => TileManager.recalibrate(@$el)
       @
 
     renderPosts: =>
-      @spin.spin(false)
-      @posts.each(@addPost)
-      TileManager.recalibrate(@$el)
+      @collection.each(@addPost)
 
     addPost: (model) =>
       @postItemView = new PostItemView(model: model)
       @$el.append(@postItemView.render().el)
-      
+
+    manageTiles: =>
+      TileManager.recalibrate(@$el)

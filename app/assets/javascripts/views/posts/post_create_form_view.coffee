@@ -12,7 +12,7 @@ define [
       'change .file-upload': 'handleFileUpload'
 
     initialize: (options) ->
-      @maxImageDimention = 400
+      @maxImageDimention = 300
       @template = _.template(template)
       if window.FileReader
         @fileReader = new FileReader()
@@ -39,13 +39,14 @@ define [
     manageLoadedImage: (e) =>
       @$el.find('.img-holder').attr(src: e.target.result)
       @imgData = new Image()
-      @imgData.onload = @passImgToCanvas
       @imgData.src = e.target.result
+      @imgData.onload = @passImgToCanvas
 
     passImgToCanvas: =>
       @setCanvasDimentions()
       @ctx.drawImage(@imgData, 0, 0, @canvas.width, @canvas.height)
-      @model.set(post_image: @canvas.toDataURL('image/webp'))
+      @model.set(post_image: @canvas.toDataURL('image/jpeg'))
+      console.log @model.get('post_image')
 
     setCanvasDimentions: =>
       if @imgData.width > @imgData.height

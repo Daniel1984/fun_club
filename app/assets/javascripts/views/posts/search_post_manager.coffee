@@ -11,7 +11,7 @@ define [
 
     initialize: (options) ->
       @template = _.template(template)
-      @posts = options.posts
+      @parent = options.parent
 
     render: =>
       @$el.html(@template())
@@ -23,5 +23,5 @@ define [
 
     onCitySelect: (e) =>
       cityId = $(e.currentTarget).val()
-      @posts.fetch(data: {id: cityId}, reset: true)
-
+      @parent.fetch({city: cityId})
+      #     @collection.fetch(data: {city: cityId}, reset: true)

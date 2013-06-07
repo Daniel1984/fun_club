@@ -6,8 +6,7 @@ define [
 ], (Backbone, PostDetailsView, template) ->
   class ItemView extends Backbone.View
     className: 'well grid post-item'
-    attributes:
-      data: 'oooo'
+
     events:
       'click .details-btn': 'showPostDetails'
 
@@ -22,5 +21,4 @@ define [
       @
 
     showPostDetails: (e) =>
-      console.log @model.toJSON()
-      new PostDetailsView(model: @model) 
+      new PostDetailsView(model: @model)

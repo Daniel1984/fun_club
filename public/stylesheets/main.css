@@ -701,20 +701,6 @@ a.label:hover,a.label:focus,a.badge:hover,a.badge:focus{color:#fff;text-decorati
 .show{display:block}
 .invisible{visibility:hidden}
 .affix{position:fixed}
-.post-item{-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.6);-moz-box-shadow:0 2px 4px rgba(0,0,0,0.6);-ms-box-shadow:0 2px 4px rgba(0,0,0,0.6);-o-box-shadow:0 2px 4px rgba(0,0,0,0.6);box-shadow:0 2px 4px rgba(0,0,0,0.6);padding:0;}
-.post-item .modal-body{min-height:130px;max-height:130px;}
-.post-item .modal-body img{max-height:130px}
-.post-item .modal-body .body{max-height:130px;overflow:hidden}
-.post-item .modal-body .img-container{text-align:center}
-.post-create i{cursor:pointer}
-.container.main{margin-top:40px}
-.welcome-msg{text-align:center;color:whiteSmoke}
-.spinner{margin:30px auto 0 auto}
-.posts-search{text-align:center}
-.city-select{text-align:center}
-#s2id_autogen1{margin:0 auto;display:block}
-.post-btn{width:300px;display:block;margin:10px auto}
-.select2-choice.select2-default span{margin-right:0 !important}
 /*
  * Bootstrap Responsive v2.3.0
  *
@@ -922,5 +908,20 @@ input[type="checkbox"],input[type="radio"]{border:1px solid #ccc}
 }@media (min-width: $navbarCollapseDesktopWidth){.nav-collapse.collapse{height:auto !important;overflow:visible !important}
 }#container{position:relative;width:1100px;margin:0 auto 25px;padding-bottom:10px}
 .grid{min-width:350px;min-height:100px;background:#fff;margin:8px;font-size:12px;float:left;-webkit-transition:top 1s ease,left 1s ease;-moz-transition:top 1s ease,left 1s ease;-o-transition:top 1s ease,left 1s ease;-ms-transition:top 1s ease,left 1s ease;-webkit-transition:top 1s ease,left 1s ease;-moz-transition:top 1s ease,left 1s ease;-ms-transition:top 1s ease,left 1s ease;-o-transition:top 1s ease,left 1s ease;transition:top 1s ease,left 1s ease}
-.modal{position:absolute;}
-.modal .modal-body{max-height:100%}
+.post-item{-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.6);-moz-box-shadow:0 2px 4px rgba(0,0,0,0.6);-ms-box-shadow:0 2px 4px rgba(0,0,0,0.6);-o-box-shadow:0 2px 4px rgba(0,0,0,0.6);box-shadow:0 2px 4px rgba(0,0,0,0.6);padding:0;}
+.post-item .modal-body{min-height:130px;max-height:130px;}
+.post-item .modal-body img{max-height:130px}
+.post-item .modal-body .body{max-height:130px;overflow:hidden}
+.post-item .modal-body .img-container{text-align:center}
+.post-create i{cursor:pointer}
+.modal.post_details img{display:block;max-width:300px;max-height:300px;margin:0 auto}
+.modal.post_details hr.post-comment-separator{margin-bottom:0}
+.modal.post_details .spinner{margin:10px auto 0 auto;height:10px}
+.container.main{margin-top:40px}
+.welcome-msg{text-align:center;color:whiteSmoke}
+.spinner{margin:30px auto 0 auto}
+.posts-search{text-align:center}
+.city-select{text-align:center}
+#s2id_autogen1{margin:0 auto;display:block}
+.post-btn{width:300px;display:block;margin:10px auto}
+.select2-choice.select2-default span{margin-right:0 !important}

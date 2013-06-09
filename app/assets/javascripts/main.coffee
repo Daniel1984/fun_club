@@ -7,17 +7,24 @@ require.config
     text: 'lib/requirejs/text'
     domready: 'lib/requirejs/domready'
     bootstrap: 'lib/bootstrap'
+    modal: 'lib/bootstrap_modal'
+    modalmanager: 'lib/bootstrap_modalmanager'
     select2: 'lib/select2'
     backstretch: 'lib/backstretch'
     blocksit: 'lib/blocksit'
     shorten: 'lib/jquery_shorten'
     spin: 'lib/spin'
+    xdate: 'lib/xdate'
   shim:
     underscore:
       exports: '_'
     backbone:
       deps: ['underscore', 'jquery', 'backbone_datalink']
       exports: 'Backbone'
+    modal:
+      exports: 'modal'
+    modalmanager:
+      exports: 'modal'
     backbone_datalink:
       deps: ['jquery']
       exports: 'jQuery.fn.backboneLink'
@@ -33,6 +40,8 @@ require.config
     shorten:
       deps: ['jquery']
       exports: 'jQuery.fn.shorten'
+    xdate:
+      exports: 'XDate'
 
 require ['domready', 'app'], (domReady, app) ->
   domReady =>

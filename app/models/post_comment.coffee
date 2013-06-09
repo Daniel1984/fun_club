@@ -24,5 +24,5 @@ module.exports.create = (postId, comment, cb) ->
 
 module.exports.index = (postId, cb) ->
   Post.show postId, (post, err) ->
-    return cb(err, null) if err
-    cd(null, post.comments)
+    return cb(null, err) if err
+    cb(post.comments, null)

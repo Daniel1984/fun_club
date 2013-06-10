@@ -30,7 +30,7 @@ define(['backbone', 'text!templates/posts/post_create_form.html', 'text!template
     };
 
     ProtocolCreateFormView.prototype.initialize = function(options) {
-      this.maxImageDimention = 400;
+      this.maxImageDimention = 300;
       this.template = _.template(template);
       if (window.FileReader) {
         this.fileReader = new FileReader();
@@ -70,16 +70,17 @@ define(['backbone', 'text!templates/posts/post_create_form.html', 'text!template
         src: e.target.result
       });
       this.imgData = new Image();
-      this.imgData.onload = this.passImgToCanvas;
-      return this.imgData.src = e.target.result;
+      this.imgData.src = e.target.result;
+      return this.imgData.onload = this.passImgToCanvas;
     };
 
     ProtocolCreateFormView.prototype.passImgToCanvas = function() {
       this.setCanvasDimentions();
       this.ctx.drawImage(this.imgData, 0, 0, this.canvas.width, this.canvas.height);
-      return this.model.set({
-        post_image: this.canvas.toDataURL('image/webp')
+      this.model.set({
+        post_image: this.canvas.toDataURL('image/jpeg')
       });
+      return console.log(this.model.get('post_image'));
     };
 
     ProtocolCreateFormView.prototype.setCanvasDimentions = function() {

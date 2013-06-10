@@ -16,10 +16,6 @@ define(['backbone', 'views/post_details/index_view', 'text!templates/posts/item.
 
     ItemView.prototype.className = 'well grid post-item';
 
-    ItemView.prototype.attributes = {
-      data: 'oooo'
-    };
-
     ItemView.prototype.events = {
       'click .details-btn': 'showPostDetails'
     };
@@ -38,7 +34,6 @@ define(['backbone', 'views/post_details/index_view', 'text!templates/posts/item.
     };
 
     ItemView.prototype.showPostDetails = function(e) {
-      console.log(this.model.toJSON());
       return new PostDetailsView({
         model: this.model
       });

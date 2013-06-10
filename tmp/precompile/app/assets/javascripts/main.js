@@ -7,12 +7,14 @@ require.config({
     text: 'lib/requirejs/text',
     domready: 'lib/requirejs/domready',
     bootstrap: 'lib/bootstrap',
-    modalmanager: 'lib/modalmanager',
+    modal: 'lib/bootstrap_modal',
+    modalmanager: 'lib/bootstrap_modalmanager',
     select2: 'lib/select2',
     backstretch: 'lib/backstretch',
     blocksit: 'lib/blocksit',
     shorten: 'lib/jquery_shorten',
-    spin: 'lib/spin'
+    spin: 'lib/spin',
+    xdate: 'lib/xdate'
   },
   shim: {
     underscore: {
@@ -21,6 +23,12 @@ require.config({
     backbone: {
       deps: ['underscore', 'jquery', 'backbone_datalink'],
       exports: 'Backbone'
+    },
+    modal: {
+      exports: 'modal'
+    },
+    modalmanager: {
+      exports: 'modal'
     },
     backbone_datalink: {
       deps: ['jquery'],
@@ -42,9 +50,8 @@ require.config({
       deps: ['jquery'],
       exports: 'jQuery.fn.shorten'
     },
-    modalmanager: {
-      deps: ['jquery'],
-      exports: 'jQuery.fn.modal'
+    xdate: {
+      exports: 'XDate'
     }
   }
 });

@@ -22,7 +22,7 @@ define(['backbone', 'text!templates/posts/search.html', 'bootstrap', 'select2'],
 
     SearchView.prototype.initialize = function(options) {
       this.template = _.template(template);
-      return this.posts = options.posts;
+      return this.parent = options.parent;
     };
 
     SearchView.prototype.render = function() {
@@ -41,11 +41,8 @@ define(['backbone', 'text!templates/posts/search.html', 'bootstrap', 'select2'],
       var cityId;
 
       cityId = $(e.currentTarget).val();
-      return this.posts.fetch({
-        data: {
-          id: cityId
-        },
-        reset: true
+      return this.parent.fetch({
+        city: cityId
       });
     };
 

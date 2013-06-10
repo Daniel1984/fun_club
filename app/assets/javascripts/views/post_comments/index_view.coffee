@@ -3,8 +3,8 @@ define [
   'views/post_comments/list_view'
   'views/post_comments/form_view'
   'collections/post_comments'
-  'text!/templates/post_comments/no_comments_msg.html'
-  'text!/templates/post_comments/index.html'
+  'text!templates/post_comments/alert_msg.html'
+  'text!templates/post_comments/index.html'
   'spin'
 ], (Backbone, ListView, FormView, PostComments, NoCommentsMsg, template, Spinner) ->
   class IndexView extends Backbone.View

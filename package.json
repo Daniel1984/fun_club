@@ -1,5 +1,5 @@
 {
-  "name": "linksmi-vakarai",
+  "name": "fun_club",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -25,9 +25,5 @@
     "grunt-contrib-copy": "~0.4.1",
     "grunt-mincer": "~0.3.1",
     "grunt-contrib-concat": "~0.3.0"
-  },
-  "engines": {
-    "node": "0.10.x",
-    "npm": "1.2.x"
   }
 }

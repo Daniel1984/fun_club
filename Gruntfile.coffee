@@ -26,7 +26,7 @@ module.exports = (grunt) ->
           findNestedDependencies: true
           inlineText: true
           stubModules: ['text', 'html']
-          out: 'public/javascripts/ttt.js'
+          out: 'public/javascripts/main.js'
 
   )
   grunt.loadNpmTasks('grunt-contrib-clean')
@@ -34,4 +34,4 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-contrib-requirejs')
 
-  grunt.registerTask('build', ['clean','coffee','copy','clean'])
+  grunt.registerTask('build', ['clean','coffee','copy','requirejs','clean'])

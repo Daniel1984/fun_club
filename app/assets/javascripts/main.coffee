@@ -24,7 +24,7 @@ require.config
     modal:
       exports: 'modal'
     modalmanager:
-      exports: 'modal'
+      exports: 'modal-manager'
     backbone_datalink:
       deps: ['jquery']
       exports: 'jQuery.fn.backboneLink'

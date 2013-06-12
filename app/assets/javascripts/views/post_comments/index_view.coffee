@@ -3,8 +3,12 @@ define [
   'views/post_comments/list_view'
   'views/post_comments/form_view'
   'collections/post_comments'
+<<<<<<< HEAD
   'models/post_comment'
   'text!templates/post_comments/no_comments_msg.html'
+=======
+  'text!templates/post_comments/alert_msg.html'
+>>>>>>> f81f64a7e354dddf2e9290a6e9329488aa85c662
   'text!templates/post_comments/index.html'
   'spin'
 ], (Backbone, ListView, FormView, Comments, Comment, NoCommentsMsg, template, Spinner) ->

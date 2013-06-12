@@ -21,10 +21,6 @@ require.config
     backbone:
       deps: ['underscore', 'jquery', 'backbone_datalink']
       exports: 'Backbone'
-    modal:
-      exports: 'modal'
-    modalmanager:
-      exports: 'modal'
     backbone_datalink:
       deps: ['jquery']
       exports: 'jQuery.fn.backboneLink'

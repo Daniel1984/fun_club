@@ -4,7 +4,6 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
 
 define(['backbone', 'text!templates/posts/post_create_form.html', 'text!templates/posts/search.html', 'backbone_datalink'], function(Backbone, template, CitySelectPartial) {
   var ProtocolCreateFormView, _ref;
-
   return ProtocolCreateFormView = (function(_super) {
     __extends(ProtocolCreateFormView, _super);
 
@@ -17,7 +16,8 @@ define(['backbone', 'text!templates/posts/post_create_form.html', 'text!template
       this.manageLoadedImage = __bind(this.manageLoadedImage, this);
       this.handleFileUpload = __bind(this.handleFileUpload, this);
       this.addCitySeletPartial = __bind(this.addCitySeletPartial, this);
-      this.render = __bind(this.render, this);      _ref = ProtocolCreateFormView.__super__.constructor.apply(this, arguments);
+      this.render = __bind(this.render, this);
+      _ref = ProtocolCreateFormView.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
@@ -30,7 +30,7 @@ define(['backbone', 'text!templates/posts/post_create_form.html', 'text!template
     };
 
     ProtocolCreateFormView.prototype.initialize = function(options) {
-      this.maxImageDimention = 400;
+      this.maxImageDimention = 300;
       this.template = _.template(template);
       if (window.FileReader) {
         this.fileReader = new FileReader();
@@ -54,7 +54,6 @@ define(['backbone', 'text!templates/posts/post_create_form.html', 'text!template
 
     ProtocolCreateFormView.prototype.handleFileUpload = function(e) {
       var file;
-
       if (e.currentTarget.files.length === 0) {
         return;
       }
@@ -70,16 +69,17 @@ define(['backbone', 'text!templates/posts/post_create_form.html', 'text!template
         src: e.target.result
       });
       this.imgData = new Image();
-      this.imgData.onload = this.passImgToCanvas;
-      return this.imgData.src = e.target.result;
+      this.imgData.src = e.target.result;
+      return this.imgData.onload = this.passImgToCanvas;
     };
 
     ProtocolCreateFormView.prototype.passImgToCanvas = function() {
       this.setCanvasDimentions();
       this.ctx.drawImage(this.imgData, 0, 0, this.canvas.width, this.canvas.height);
-      return this.model.set({
-        post_image: this.canvas.toDataURL('image/webp')
+      this.model.set({
+        post_image: this.canvas.toDataURL('image/jpeg')
       });
+      return console.log(this.model.get('post_image'));
     };
 
     ProtocolCreateFormView.prototype.setCanvasDimentions = function() {
@@ -92,7 +92,6 @@ define(['backbone', 'text!templates/posts/post_create_form.html', 'text!template
 
     ProtocolCreateFormView.prototype.setupPortraitCanvas = function() {
       var delta, width;
-
       delta = 100 - (-(this.maxImageDimention - this.imgData.height) * 100 / this.imgData.height);
       width = (this.imgData.width * delta) / 100;
       return this.setupCanvasSize(width, this.maxImageDimention);
@@ -100,7 +99,6 @@ define(['backbone', 'text!templates/posts/post_create_form.html', 'text!template
 
     ProtocolCreateFormView.prototype.setupLanscapeCanvas = function() {
       var delta, height;
-
       delta = 100 - (-(this.maxImageDimention - this.imgData.width) * 100 / this.imgData.width);
       height = (this.imgData.height * delta) / 100;
       return this.setupCanvasSize(this.maxImageDimention, height);

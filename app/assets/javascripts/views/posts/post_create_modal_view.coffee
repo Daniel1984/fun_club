@@ -12,6 +12,7 @@ define [
       @template = _.template(template)
       @view = options.view
       @model = @view.model
+      @model.on('sync', @onSync)
       @render()
 
     render: =>
@@ -23,4 +24,8 @@ define [
     savePost: (e) =>
       e.preventDefault()
       @model.unset('post_img_clear')
-      @model.save()
+      @model.save(wait: true)
+
+    onSync: =>
+      @$el.modal('hide')
+      @model.trigger('fetch')

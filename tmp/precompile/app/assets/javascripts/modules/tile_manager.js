@@ -1,10 +1,8 @@
 define([], function() {
   var _this = this;
-
   return {
     recalibrate: function(el) {
       var col, conWidth, currentWidth, winWidth;
-
       winWidth = $(window).width();
       conWidth = void 0;
       if (winWidth < 750) {

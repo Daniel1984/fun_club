@@ -4,13 +4,13 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
 
 define(['backbone', 'text!templates/posts/search.html', 'bootstrap', 'select2'], function(Backbone, template) {
   var SearchView, _ref;
-
   return SearchView = (function(_super) {
     __extends(SearchView, _super);
 
     function SearchView() {
       this.onCitySelect = __bind(this.onCitySelect, this);
-      this.render = __bind(this.render, this);      _ref = SearchView.__super__.constructor.apply(this, arguments);
+      this.render = __bind(this.render, this);
+      _ref = SearchView.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
@@ -22,7 +22,7 @@ define(['backbone', 'text!templates/posts/search.html', 'bootstrap', 'select2'],
 
     SearchView.prototype.initialize = function(options) {
       this.template = _.template(template);
-      return this.posts = options.posts;
+      return this.parent = options.parent;
     };
 
     SearchView.prototype.render = function() {
@@ -39,13 +39,9 @@ define(['backbone', 'text!templates/posts/search.html', 'bootstrap', 'select2'],
 
     SearchView.prototype.onCitySelect = function(e) {
       var cityId;
-
       cityId = $(e.currentTarget).val();
-      return this.posts.fetch({
-        data: {
-          id: cityId
-        },
-        reset: true
+      return this.parent.fetch({
+        city: cityId
       });
     };
 

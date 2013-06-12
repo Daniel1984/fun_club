@@ -4,13 +4,13 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
 
 define(['backbone', 'text!templates/posts/post_create_modal.html'], function(Backbone, template) {
   var PostCreateModalView, _ref;
-
   return PostCreateModalView = (function(_super) {
     __extends(PostCreateModalView, _super);
 
     function PostCreateModalView() {
       this.savePost = __bind(this.savePost, this);
-      this.render = __bind(this.render, this);      _ref = PostCreateModalView.__super__.constructor.apply(this, arguments);
+      this.render = __bind(this.render, this);
+      _ref = PostCreateModalView.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 

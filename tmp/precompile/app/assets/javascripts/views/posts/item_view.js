@@ -4,21 +4,17 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
 
 define(['backbone', 'views/post_details/index_view', 'text!templates/posts/item.html', 'shorten'], function(Backbone, PostDetailsView, template) {
   var ItemView, _ref;
-
   return ItemView = (function(_super) {
     __extends(ItemView, _super);
 
     function ItemView() {
       this.showPostDetails = __bind(this.showPostDetails, this);
-      this.render = __bind(this.render, this);      _ref = ItemView.__super__.constructor.apply(this, arguments);
+      this.render = __bind(this.render, this);
+      _ref = ItemView.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
     ItemView.prototype.className = 'well grid post-item';
-
-    ItemView.prototype.attributes = {
-      data: 'oooo'
-    };
 
     ItemView.prototype.events = {
       'click .details-btn': 'showPostDetails'
@@ -38,7 +34,6 @@ define(['backbone', 'views/post_details/index_view', 'text!templates/posts/item.
     };
 
     ItemView.prototype.showPostDetails = function(e) {
-      console.log(this.model.toJSON());
       return new PostDetailsView({
         model: this.model
       });

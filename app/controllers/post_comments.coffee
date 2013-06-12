@@ -2,7 +2,7 @@ appPath = "#{process.cwd()}/app"
 PostComment = require "#{appPath}/models/post_comment"
 
 module.exports.index = (req, res) ->
-  PostComment.index req.query.post_id, (comments, err) ->
+  PostComment.index req.query.post_id, (err, comments) ->
     return res.json({}, 422) if err
     res.json(comments, 200)
 

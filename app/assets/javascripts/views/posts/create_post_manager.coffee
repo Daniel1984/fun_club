@@ -1,9 +1,8 @@
 define [
   'backbone'
   'views/posts/post_create_modal_view'
-  'views/posts/post_create_form_view'
-  'models/post'
-], (Backbone, PostCreateModalView, PostCreateFormView, Post) ->
+  'views/posts/post_create_form_view' 
+], (Backbone, PostCreateModalView, PostCreateFormView) ->
 
   class CreatePostInputManager extends Backbone.View
     tagName: 'button'
@@ -12,16 +11,11 @@ define [
       'click': 'createNewPost'
 
     initialize: (options) ->
-      @post = new Post()
-      @post.on('sync', @onPostSync)
+      @post = options.post
 
     render: =>
       @$el.text('skelbtis')
       @
-
-    onPostSync: (model, response) =>
-      console.log 'model', model
-      console.log 'response', response
 
     createNewPost: =>
       @postFormView = new PostCreateFormView(model: @post)

@@ -4,14 +4,14 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
 
 define(['backbone', 'views/posts/post_create_modal_view', 'views/posts/post_create_form_view', 'models/post'], function(Backbone, PostCreateModalView, PostCreateFormView, Post) {
   var CreatePostInputManager, _ref;
-
   return CreatePostInputManager = (function(_super) {
     __extends(CreatePostInputManager, _super);
 
     function CreatePostInputManager() {
       this.createNewPost = __bind(this.createNewPost, this);
       this.onPostSync = __bind(this.onPostSync, this);
-      this.render = __bind(this.render, this);      _ref = CreatePostInputManager.__super__.constructor.apply(this, arguments);
+      this.render = __bind(this.render, this);
+      _ref = CreatePostInputManager.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 

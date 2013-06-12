@@ -4,7 +4,6 @@ define [
   'text!templates/posts/search.html'
   'backbone_datalink'
 ], (Backbone, template, CitySelectPartial) ->
-
   class ProtocolCreateFormView extends Backbone.View
     tagName: 'form'
     className: 'form-horizontal post-create'
@@ -17,6 +16,8 @@ define [
       if window.FileReader
         @fileReader = new FileReader()
         @fileReader.onload = @manageLoadedImage
+      else
+        @$('.file-upload-container').hide()
 
     render: =>
       @$el.html(@template())
@@ -46,7 +47,6 @@ define [
       @setCanvasDimentions()
       @ctx.drawImage(@imgData, 0, 0, @canvas.width, @canvas.height)
       @model.set(post_image: @canvas.toDataURL('image/jpeg'))
-      console.log @model.get('post_image')
 
     setCanvasDimentions: =>
       if @imgData.width > @imgData.height

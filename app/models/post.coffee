@@ -49,5 +49,5 @@ module.exports.index = (search, cb) ->
 
 module.exports.show = (id, cb) ->
   Post.findById id, (err, post) ->
-    return cb(null, err) if err
-    cb(post, null)
+    return cb(err, null) if err
+    cb(null, post)

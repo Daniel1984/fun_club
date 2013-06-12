@@ -915,7 +915,7 @@ input[type="checkbox"],input[type="radio"]{border:1px solid #ccc}
 .post-item .modal-body .img-container{text-align:center}
 .post-create i{cursor:pointer}
 .modal.post_details img{display:block;max-width:300px;max-height:300px;margin:0 auto}
-.modal.post_details hr.post-comment-separator{margin-bottom:0}
+.modal.post_details hr.post-comment-separator{margin-bottom:20px}
 .modal.post_details .spinner{margin:10px auto 0 auto;height:10px}
 .container.main{margin-top:40px}
 .welcome-msg{text-align:center;color:whiteSmoke}

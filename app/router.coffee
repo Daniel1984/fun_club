@@ -11,3 +11,4 @@ module.exports = (app) ->
 
   postCommentsController = require("#{appPath}/controllers/post_comments")
   app.get '/post_comments', postCommentsController.index
+  app.post '/post_comments', postCommentsController.create

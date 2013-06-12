@@ -4,13 +4,13 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
 
 define(['backbone', 'views/posts/index_view', 'text!templates/page/index.html'], function(Backbone, PostsView, template) {
   var PageIndexView, _ref;
-
   return PageIndexView = (function(_super) {
     __extends(PageIndexView, _super);
 
     function PageIndexView() {
       this.renderPosts = __bind(this.renderPosts, this);
-      this.render = __bind(this.render, this);      _ref = PageIndexView.__super__.constructor.apply(this, arguments);
+      this.render = __bind(this.render, this);
+      _ref = PageIndexView.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 

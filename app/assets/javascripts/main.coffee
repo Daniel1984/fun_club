@@ -12,7 +12,6 @@ require.config
     select2: 'lib/select2'
     backstretch: 'lib/backstretch'
     blocksit: 'lib/blocksit'
-    shorten: 'lib/jquery_shorten'
     spin: 'lib/spin'
     xdate: 'lib/xdate'
   shim:
@@ -33,9 +32,6 @@ require.config
     blocksit:
       deps: ['jquery']
       exports: 'jQuery.fn.blocksit'
-    shorten:
-      deps: ['jquery']
-      exports: 'jQuery.fn.shorten'
     xdate:
       exports: 'XDate'
 

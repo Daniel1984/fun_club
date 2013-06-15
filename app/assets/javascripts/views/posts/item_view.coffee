@@ -14,6 +14,7 @@ define [
 
     render: =>
       @$el.html(@template(@model.toJSON()))
+      @
 
     showPostDetails: (e) =>
       new PostDetailsView(model: @model)

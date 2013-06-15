@@ -4,6 +4,12 @@ path = require 'path'
 stylus = require 'stylus'
 fs = require 'fs'
 coffee = require 'coffee-script'
+#repl = require 'repl'
+
+#repl.start
+#  prompt: "node via stdin> "
+#  input: process.stdin
+#  output: process.stdout
 
 app = express()
 

@@ -1,26 +1,27 @@
 ejs = require 'ejs'
 fs = require 'fs'
 db = require "#{process.cwd()}/db/mongo"
+validator = require("mongoose-validator").validate
+
 mailer = require "#{process.cwd()}/app/mailers/node_mailer"
 sms = require "#{process.cwd()}/app/services/sms"
-
 postSuccessHtmlEmail = fs.readFileSync("#{process.cwd()}/app/views/emails/post_success_html.ejs", "utf8")
 
-titleLengthValidator = (v) ->
-  return true unless v?.length > 100
-emailLengthValidator = (v) ->
-  return true unless v?.length > 50
-mobileLengthValidator = (v) ->
-  return true unless v?.length > 12
-bodyLengthValidator = (v) ->
-  return true unless v?.length > 300
+emailValidator = [validator(message: 'klaidingas adresas', 'isEmail')]
+bodyValidator = [validator(message: 'skelbimas turetu', 'len', 2, 300)]
+mobileValidator = (v) ->
+  if v && v == ''
+    return true
+  else if v && /^(\+[\d]{1,3}|0)?[7-9]\d{9}$/.test(v)
+    return true
+  else
+    return false
 
 PostSchema = new db.Schema
-  title: type: String, required: true, validate: [titleLengthValidator, 'per ilgas pavadinimas']
-  email: type: String, required: false, validate: [emailLengthValidator, 'per ilgas adresas']
-  mobile: type: String, required: false, validate: [mobileLengthValidator, 'per ilgas mob. numeris']
+  email: type: String, required: false, validate: emailValidator
+  mobile: type: String, validate: [mobileValidator, 'klaidingas mobilus numeris']
   city: type: String, required: true
-  body: type: String, required: false, validate: [bodyLengthValidator, 'per ilgas pranešimas']
+  body: type: String, validate: bodyValidator
   post_image: String
   comments: [type: db.Schema.Types.ObjectId, ref: 'CommentSchema']
   created_at: type: Date

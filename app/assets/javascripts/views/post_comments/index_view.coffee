@@ -9,8 +9,8 @@ define [
   'spin'
 ], (Backbone, ListView, FormView, Comments, Comment, NoCommentsMsg, template, Spinner) ->
   class IndexView extends Backbone.View
+    className: 'post-comments'
     initialize: (options) ->
-      console.log 'hahahah got here'
       @template = _.template(template)
       @postId = options.postId
       @spinner = new Spinner(color: '#000', width: 4, length: 6, lines: 11, radius: 8)

@@ -5,7 +5,7 @@ sms = require "#{process.cwd()}/app/services/sms"
 Post = require "#{process.cwd()}/app/models/post"
 
 CommentSchema = new db.Schema
-  author_name: type: String
+  author_name: type: String, default: 'anonimas'
   author_comment: type: String
   like: type: Number, default: 0
   dislike: type: Number, default: 0

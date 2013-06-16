@@ -10,11 +10,12 @@ define [
 ], (Backbone, ListView, FormView, Comments, Comment, NoCommentsMsg, template, Spinner) ->
   class IndexView extends Backbone.View
     className: 'post-comments'
+
     initialize: (options) ->
       @template = _.template(template)
-      @postId = options.postId
-      @spinner = new Spinner(color: '#000', width: 4, length: 6, lines: 11, radius: 8)
       @noCommentsMsg = _.template(NoCommentsMsg)
+      @postId = options.postId
+      @spinner = new Spinner(color: '#000', width: 4, length: 6, lines: 11, radius: 8) 
       @comment = new Comment(post_id: @postId)
       @comments = new Comments()
       @comments.on('reset', @renderList)

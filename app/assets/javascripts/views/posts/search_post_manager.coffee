@@ -24,4 +24,3 @@ define [
     onCitySelect: (e) =>
       cityId = $(e.currentTarget).val()
       @parent.fetch({city: cityId})
-      #     @collection.fetch(data: {city: cityId}, reset: true)

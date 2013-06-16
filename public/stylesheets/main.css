@@ -913,15 +913,19 @@ input[type="checkbox"],input[type="radio"]{border:1px solid #ccc}
 .post-item .modal-body img{max-height:130px}
 .post-item .modal-body .body{max-height:130px;overflow:hidden}
 .post-item .modal-body .img-container{text-align:center}
+.post-create{margin-bottom:0;}
 .post-create i{cursor:pointer}
-.modal.post_details h3{font-weight:400;color:#999}
-.modal.post_details img{display:block;max-width:300px;max-height:300px;margin:0 auto}
-.modal.post_details hr.post-comment-separator{margin-bottom:20px}
-.modal.post_details .spinner{margin:10px auto 0 auto;height:10px}
-.modal.post_details form{margin-top:10px}
+.post-create select.city-select{width:274px}
+div.modal.post_details dl{margin-bottom:0;margin-top:0}
+div.modal.post_details h3{font-weight:400;color:#999}
+div.modal.post_details img{display:block;max-width:300px;max-height:300px;margin:0 auto}
+div.modal.post_details hr.post-comment-separator{margin-bottom:20px}
+div.modal.post_details .spinner{margin:10px auto 0 auto;height:10px}
+div.modal.post_details form{margin-top:10px}
 .post-comments .comment-item{background:whiteSmoke;margin:0 0 5px 0;-webkit-border-radius:5px;-moz-border-radius:5px;-o-border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;-o-border-radius:5px;border-radius:5px;}
 .post-comments .comment-item .comment-inner-container{padding:5px;}
 .post-comments .comment-item .comment-inner-container hr{margin:3px 0 3px 0}
+body h1,body h2,body h3{font-weight:400;color:#999}
 .container.main{margin-top:40px}
 .welcome-msg{text-align:center;color:whiteSmoke}
 .spinner{margin:30px auto 0 auto}

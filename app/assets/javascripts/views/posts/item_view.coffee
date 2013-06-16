@@ -1,13 +1,15 @@
 define [
   'backbone'
   'views/post_details/index_view'
+  'views/join_event/index_view'
   'text!templates/posts/item.html'
-], (Backbone, PostDetailsView, template) ->
+], (Backbone, PostDetailsView, JoinEventModal, template) ->
   class ItemView extends Backbone.View
     className: 'well grid post-item'
 
     events:
       'click .details-btn': 'showPostDetails'
+      'click .join-event-btn': 'joinEvent'
 
     initialize: (options) ->
       @template = _.template(template)
@@ -16,5 +18,8 @@ define [
       @$el.html(@template(@model.toJSON()))
       @
 
-    showPostDetails: (e) =>
+    showPostDetails: =>
       new PostDetailsView(model: @model)
+
+    joinEvent: =>
+      new JoinEventModal(model: @model)

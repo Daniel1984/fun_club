@@ -7,8 +7,8 @@ mailer = require "#{process.cwd()}/app/mailers/node_mailer"
 sms = require "#{process.cwd()}/app/services/sms"
 postSuccessHtmlEmail = fs.readFileSync("#{process.cwd()}/app/views/emails/post_success_html.ejs", "utf8")
 
-emailValidator = [validator(message: 'klaidingas adresas', 'isEmail')]
-bodyValidator = [validator(message: 'skelbimas turetu', 'len', 2, 300)]
+emailValidator = [validator(message: 'klaidingas El. pašto adresas', 'isEmail')]
+bodyValidator = [validator(message: 'šį langelį būtina užpildyti', 'len', 2, 300)]
 mobileValidator = (v) ->
   if v && v == ''
     return true
@@ -21,7 +21,7 @@ PostSchema = new db.Schema
   email: type: String, required: false, validate: emailValidator
   mobile: type: String, validate: [mobileValidator, 'klaidingas mobilus numeris']
   city: type: String, required: true
-  body: type: String, validate: bodyValidator
+  body: type: String, required: true, validate: bodyValidator
   post_image: String
   comments: [type: db.Schema.Types.ObjectId, ref: 'CommentSchema']
   created_at: type: Date

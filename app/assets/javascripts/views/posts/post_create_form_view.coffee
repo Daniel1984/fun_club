@@ -1,9 +1,10 @@
 define [
   'backbone'
+  'views/helpers/error_handler_view'
   'text!templates/posts/post_create_form.html'
   'text!templates/posts/search.html'
   'backbone_datalink'
-], (Backbone, template, CitySelectPartial) ->
+], (Backbone, ErrorHandler, template, CitySelectPartial) ->
   class ProtocolCreateFormView extends Backbone.View
     tagName: 'form'
     className: 'form-horizontal post-create'
@@ -11,6 +12,7 @@ define [
       'change .file-upload': 'handleFileUpload'
 
     initialize: (options) ->
+      @model.on('error', @handleError)
       @maxImageDimention = 300
       @template = _.template(template)
       if window.FileReader
@@ -20,7 +22,7 @@ define [
         @$('.file-upload-container').hide()
 
     render: =>
-      @$el.html(@template())
+      @$el.html(@template(@model.toJSON()))
       @addCitySeletPartial()
       @$el.backboneLink(@model)
       @canvas = @$el.find('.img-canvas')[0]
@@ -30,6 +32,9 @@ define [
     addCitySeletPartial: =>
       @$el.find('.city-select-container').html(CitySelectPartial)
       @$el.find('.city-select').addClass('span3')
+    
+    handleError: (model, error) =>
+      new ErrorHandler(error: error, el: @el)
 
     handleFileUpload: (e) =>
       if e.currentTarget.files.length == 0 then return

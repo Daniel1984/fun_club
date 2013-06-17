@@ -24,7 +24,9 @@ define [
       @fetch()
       @
 
-    fetch: (data = {}) =>
+    fetch: (data = {}) => 
+      @post.clear()
+      console.log 'fetching'
       @listView?.remove()
       @$el.append(@spinner.spin().el)
       @posts.fetch(data: data, reset: true)
@@ -34,11 +36,11 @@ define [
       @$el.append(@searchView.render().el)
 
     enableCreate: =>
-      @createInput = new CreatePostManager(post: @post)
+      @createInput = new CreatePostManager(model: @post)
       @$el.append(@createInput.render().el)
 
     renderList: =>
-      @spinner.stop()
+      @spinner.stop() 
       @listView = new ListView(collection: @posts)
       @$el.append(@listView.render().el)
       @listView.manageTiles()

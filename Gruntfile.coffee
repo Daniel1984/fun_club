@@ -27,11 +27,18 @@ module.exports = (grunt) ->
           inlineText: true
           stubModules: ['text', 'html']
           out: 'public/javascripts/main.js'
-
+    jasmine:
+      src: 'tmp/precompile/app/assets/javascripts/**/*.js'
+      options:
+        specs: 'tmp/precompile/app/assets/javascripts/spec/**/*.js'
   )
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-contrib-requirejs')
+  grunt.loadNpmTasks('grunt-contrib-jasmine')
 
   grunt.registerTask('build', ['clean','coffee','copy','requirejs','clean'])
+  grunt.registerTask('test', ['clean','coffee','copy','jasmine','clean'])
+
+  grunt.registerTask('default', ['test'])

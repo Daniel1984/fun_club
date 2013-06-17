@@ -22,4 +22,4 @@ define [
       new PostDetailsView(model: @model)
 
     joinEvent: =>
-      new JoinEventModal(model: @model)
+      new JoinEventModal(post: @model)

@@ -10,9 +10,9 @@ postSuccessHtmlEmail = fs.readFileSync("#{process.cwd()}/app/views/emails/post_s
 emailValidator = [validator(message: 'klaidingas El. pašto adresas', 'isEmail')]
 bodyValidator = [validator(message: 'šį langelį būtina užpildyti', 'len', 2, 300)]
 mobileValidator = (v) ->
-  if v && v == ''
+  if v? && v == ''
     return true
-  else if v && /^(\+[\d]{1,3}|0)?[7-9]\d{9}$/.test(v)
+  else if v? && /^(\+[\d]{1,3}|0)?[7-9]\d{9}$/.test(v)
     return true
   else
     return false

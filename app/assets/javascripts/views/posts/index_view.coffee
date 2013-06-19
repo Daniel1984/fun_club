@@ -26,7 +26,6 @@ define [
 
     fetch: (data = {}) => 
       @post.clear()
-      console.log 'fetching'
       @listView?.remove()
       @$el.append(@spinner.spin().el)
       @posts.fetch(data: data, reset: true)

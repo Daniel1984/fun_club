@@ -17,20 +17,24 @@ define [
       @postId = options.postId
       @spinner = new Spinner(color: '#000', width: 4, length: 6, lines: 11, radius: 8) 
       @comment = new Comment(post_id: @postId)
+      @comment.on('sync', @handleSync)
       @comments = new Comments()
       @comments.on('reset', @renderList)
       @fetch(post_id: @postId)
 
     render: =>
       @$el.html(@template)
-      @$el.find('.spinner-container').append(@spinner.spin().el)
+      @renderSpinner()
       @renderForm()
       @
+
+    renderSpinner: =>
+      @$('.spinner-container').append(@spinner.spin().el)
 
     fetch: (data = {}) =>
       @comments.fetch(data: data, reset: true)
 
-    renderList: =>
+    renderList: => 
       @spinner.stop()
       if @comments.length == 0
         @$el.find('.comments-container').append(@noCommentsMsg)
@@ -41,3 +45,8 @@ define [
     renderForm: =>
       @formView = new FormView(model: @comment)
       @$el.find('.form-container').append(@formView.render().el)
+
+    handleSync: =>
+      @listView?.remove()
+      @renderSpinner()
+      @fetch(post_id: @postId)

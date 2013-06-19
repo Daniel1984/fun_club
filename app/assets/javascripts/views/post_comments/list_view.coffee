@@ -5,9 +5,6 @@ define [
   class ListView extends Backbone.View
     className: 'row-fluid'
 
-    initialize: (options) ->
-      console.log @collection
-
     render: =>
       @$el.html()
       @collection.each(@addItemView)

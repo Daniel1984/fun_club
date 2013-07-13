@@ -25,7 +25,7 @@ define [
       e.preventDefault()
       @$('.save-comment-btn').attr('disabled', true)
       @$('.save-comment-btn').append(@spinner.spin().el)
-      @model.save()
+      @model.save(wait: true)
 
     handleSync: (model, response) =>
       postId = model.get('post_id')

@@ -39,8 +39,6 @@ module.exports.create = (post, cb) ->
         to: post.email
         subject: 'Laikas linksmybėms!'
         html: ejs.render(postSuccessHtmlEmail, {post: post})
-    if post.mobile
-      sms.sendSms(post.mobile, 'FUN CLUB DEKOJA UZ SKELBIMA. TIKIMES JOG RASITE TAI KO IESKOJOTE.')
 
 module.exports.index = (search, cb) ->
   Post

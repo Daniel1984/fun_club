@@ -25,9 +25,9 @@ module.exports.create = (reqBody, cb) ->
         callback(err, comment)
     post: (callback) ->
       Post.show postId, (err, post) ->
-        callback(err, post)
+        callback(null, post)
     (err, response) ->
-      cb(null, err) if err
+      return cb(null, err) if err
       post = response.post
       post.comments.push(response.comment._id)
       post.save()
@@ -49,3 +49,10 @@ module.exports.index = (postId, cb) ->
             callback(err, comments)
     ], (err, result) ->
       cb(err, result)
+
+module.exports.update = (comment, cb) ->
+  id = comment._id
+  delete comment._id
+  Comment.update _id: id, comment, (err, comment) ->
+    return cb(err, null) if err
+    cb(null, comment)

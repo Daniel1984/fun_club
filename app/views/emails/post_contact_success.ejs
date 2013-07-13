@@ -1,0 +1,16 @@
+<h3>Sveiki</h3>
+
+<p>Su jumis bandoma susisiekti dėl neseniai mūsų puslapyje patalpino skelbimo.</p><br />
+<p>Susidomėjęs asmuo paliko sekančius duomenys:</p><br />
+
+<% if (join.mobile) { %>
+  <strong>Telefono numeris:</strong> <%= join.mobile %><br />
+<% } %>
+
+<% if (join.email) { %>
+  <strong>El. pašto adresas:</strong> <%= join.email %><br />
+<% } %>
+
+<% if (join.content) { %>
+  <strong>Pranešimas:</strong> <%= join.content %><br />
+<% } %>

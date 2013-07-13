@@ -4,9 +4,10 @@
     <% if (new XDate(created_at).toString('MM d yyyy') == new XDate().toString('MM d yyyy')) { %>
       <small class='text-error'>Šiandien!</small>
     <% } else { %>
-      <small><%= new XDate(created_at).toString('dddd, MMM d, yyyy') %></small>
+      <small><%= new XDate(created_at).toString('ddd, MMM d, yyyy') %></small>
     <% } %>
   </div>
+
   <div class='span9'>
     <dl class='dl-horizontal'>
       <dt>Vardas:</dt>

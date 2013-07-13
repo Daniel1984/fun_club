@@ -10,3 +10,8 @@ module.exports.create = (req, res) ->
   PostComment.create req.body, (comment, err) ->
     return res.json(422, err) if err
     res.json(comment, 200)
+
+module.exports.update = (req, res) ->
+  PostComment.update req.body, (comment, err) ->
+    return res.json(422, err) if err
+    res.json(comment, 200)

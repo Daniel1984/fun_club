@@ -36,6 +36,7 @@ define [
 
     renderList: => 
       @spinner.stop()
+      @$('.comments-container').empty()
       if @comments.length == 0
         @$el.find('.comments-container').append(@noCommentsMsg)
       else

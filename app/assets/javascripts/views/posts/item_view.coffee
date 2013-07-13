@@ -1,7 +1,7 @@
 define [
   'backbone'
   'views/post_details/index_view'
-  'views/join_event/index_view'
+  'views/contact_poster/index_view'
   'text!templates/posts/item.html'
 ], (Backbone, PostDetailsView, JoinEventModal, template) ->
   class ItemView extends Backbone.View

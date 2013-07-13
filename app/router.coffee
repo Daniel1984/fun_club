@@ -12,6 +12,7 @@ module.exports = (app) ->
   postCommentsController = require("#{appPath}/controllers/post_comments")
   app.get '/post_comments', postCommentsController.index
   app.post '/post_comments', postCommentsController.create
+  app.put '/post_comments/:id', postCommentsController.update
   
   postJoinController = require("#{appPath}/controllers/post_joins")
   app.post '/post_join', postJoinController.create

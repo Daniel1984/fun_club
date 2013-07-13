@@ -5,9 +5,10 @@ define [
 ], (Backbone, template) ->
   class ItemView extends Backbone.View
     className: 'comment-item'
+
     initialize: (options) ->
       @template = _.template(template)
 
-    render: =>
+    render: => 
       @$el.html(@template(@model.toJSON()))
       @

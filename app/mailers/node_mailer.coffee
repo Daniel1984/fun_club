@@ -14,7 +14,6 @@ mailOptions =
 
 module.exports.sendMail = (options) ->
   _.extend(mailOptions, options)
-  console.log 'mail options -->>>', mailOptions
   smtpTransportr.sendMail(mailOptions, (err, res) ->
     console.log "error --->>>", err if err
     console.log "response --->>>>", res if res

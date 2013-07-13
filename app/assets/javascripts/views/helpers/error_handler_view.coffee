@@ -32,4 +32,6 @@ define [
     removeError: (e) =>
       @$(e.currentTarget).closest('div[class^="control-group"]').removeClass('error')
       @$(e.currentTarget).closest('div[class^="controls"]').find('.help-inline').remove()
-      @$('.btn').removeClass('disabled')
+      @$('button').attr(disabled: false)
+      @$('.disabled').removeClass('disabled')
+      @$('.spinner').remove()

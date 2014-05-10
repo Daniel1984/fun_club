@@ -1,7 +1,7 @@
 module.exports =
   database:
     user: 'aciddaniel'
-    pass: 'DSvril4ezv'
+    pass: 'daniel19841004'
     address: '@ds061747.mongolab.com:61747/linksmi_vakarai'
   email:
     service: 'Gmail'
